@@ -44,7 +44,8 @@ class ThemeController extends Controller
         $form->handleRequest($request);
         if ($form->isValid()) {
             $data = $form->getData();
-            $this->get('jungi_theme.changer')->change($data['theme'], $request);
+            $currentTheme = $data['theme'];
+            $this->get('jungi_theme.changer')->change($currentTheme, $request);
         }
 
         return $this->render('JungiEnvironmentBundle:Theme:manage.html.twig', array(

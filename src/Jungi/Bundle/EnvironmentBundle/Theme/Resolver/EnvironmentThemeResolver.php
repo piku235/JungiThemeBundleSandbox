@@ -15,14 +15,18 @@ use Jungi\Bundle\EnvironmentBundle\Core\AppContext;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * EnvironmentThemeResolver is a kind of adapter for a AppContext instance
- *
- * AppContext has whole knowledge about the current environment and the theme for this environment
+ * EnvironmentThemeResolver uses php sessions for resolving and changing the current theme
+ * for the actual environment.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */
 class EnvironmentThemeResolver implements ThemeResolverInterface
 {
+    /**
+     * @var string
+     */
+    const SESSION_NAME = 'jungi_environment_theme';
+
     /**
      * @var AppContext
      */
@@ -39,25 +43,34 @@ class EnvironmentThemeResolver implements ThemeResolverInterface
     }
 
     /**
-     * (non-PHPdoc)
-     * @see \Jungi\Bundle\ThemeBundle\Resolver\ThemeResolverInterface::resolveThemeName()
+     * {@inheritdoc}
      */
     public function resolveThemeName(Request $request)
     {
         // If the app context does not have environment for the current request, ignore
-        if (null === $this->appContext->getEnvironment()) {
+        if (null === $env = $this->appContext->getEnvironment()) {
             return null;
         }
 
-        return $this->appContext->getThemeName();
+        $sessionName = self::SESSION_NAME . '.' . $env;
+        if (!$request->hasSession() || !$request->getSession()->has($sessionName)) {
+            return $this->appContext->getThemeName();
+        }
+
+        return $request->getSession()->get($sessionName);
     }
 
     /**
-     * (non-PHPdoc)
-     * @see \Jungi\Bundle\ThemeBundle\Resolver\ThemeResolverInterface::setThemeName()
+     * {@inheritdoc}
      */
     public function setThemeName($themeName, Request $request)
     {
-        throw new \BadMethodCallException('This method is not supported. Of course you can define own logic for this action.');
+        if (null === $env = $this->appContext->getEnvironment()) {
+            throw new \RuntimeException('The current theme cannot be changed due to missing environment.');
+        } elseif (!$request->hasSession()) {
+            throw new \RuntimeException('The session is required to change the current theme.');
+        }
+
+        $request->getSession()->set(self::SESSION_NAME . '.' . $env, $themeName);
     }
 }

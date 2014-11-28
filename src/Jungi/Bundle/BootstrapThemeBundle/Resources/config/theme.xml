@@ -21,7 +21,7 @@
             <info>
                 <property key="description"><![CDATA[<b>test admin</b>]]></property>
                 <property key="version">1.0.0</property>
-                <property key="name">Admin theme</property>
+                <property key="name">Jungi Bootstrap Admin</property>
                 <property key="license">MIT</property>
                 <property key="authors" type="collection">
                     <property>%author.master%</property>
@@ -37,7 +37,7 @@
             <info>
                 <property key="description"><![CDATA[<b>test</b>]]></property>
                 <property key="version">1.0.0</property>
-                <property key="name">Default theme</property>
+                <property key="name">Jungi Bootstrap</property>
                 <property key="license">MIT</property>
                 <property key="authors" type="collection">
                     <property>%author.master%</property>

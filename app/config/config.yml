@@ -68,11 +68,7 @@ jungi_theme:
     holder:
         id: jungi_environment.context
     resolver:
-        primary:
-            type: session
-        fallback:
-            enabled: true
-            id: jungi_environment.theme.resolver
+        primary: jungi_environment.theme.resolver
 
 # Jungi EnvironmentBundle Configuration
 jungi_environment:
