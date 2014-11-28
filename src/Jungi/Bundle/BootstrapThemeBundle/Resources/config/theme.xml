@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<theme-mapping xmlns="http://piku235.github.io/JungiThemeBundle/schema/theme-mapping"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://piku235.github.io/JungiThemeBundle/schema/theme-mapping https://raw.githubusercontent.com/piku235/JungiThemeBundle/master/Mapping/Loader/schema/theme-1.0.xsd">
+
+    <parameters>
+        <parameter key="author.master" type="collection">
+            <parameter key="name">Piotr Kugla</parameter>
+            <parameter key="email">piku235@gmail.com</parameter>
+            <parameter key="homepage">http://www.master.com</parameter>
+        </parameter>
+    </parameters>
+
+    <themes>
+        <theme name="jungi_bootstrap_admin" path="@JungiBootstrapThemeBundle/Resources/theme/admin">
+            <tags>
+                <tag name="jungi.environment">admin</tag>
+                <tag name="jungi.desktop_devices" />
+                <tag name="jungi.mobile_devices" />
+            </tags>
+            <info>
+                <property key="description"><![CDATA[<b>test admin</b>]]></property>
+                <property key="version">1.0.0</property>
+                <property key="name">Admin theme</property>
+                <property key="license">MIT</property>
+                <property key="authors" type="collection">
+                    <property>%author.master%</property>
+                </property>
+            </info>
+        </theme>
+        <theme name="jungi_bootstrap" path="@JungiBootstrapThemeBundle/Resources/theme/default">
+            <tags>
+                <tag name="jungi.environment">default</tag>
+                <tag name="jungi.desktop_devices" />
+                <tag name="jungi.mobile_devices" />
+            </tags>
+            <info>
+                <property key="description"><![CDATA[<b>test</b>]]></property>
+                <property key="version">1.0.0</property>
+                <property key="name">Default theme</property>
+                <property key="license">MIT</property>
+                <property key="authors" type="collection">
+                    <property>%author.master%</property>
+                    <property type="collection">
+                        <property key="name">Nobody</property>
+                        <property key="email">nobody@gmail.com</property>
+                        <property key="homepage">http://aposocomo.com</property>
+                    </property>
+                </property>
+            </info>
+        </theme>
+    </themes>
+
+</theme-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="jungi_environment.controller_listener.class">Jungi\Bundle\EnvironmentBundle\EventListener\ControllerListener</parameter>
+        <parameter key="jungi_environment.context.class">Jungi\Bundle\EnvironmentBundle\Core\AppContext</parameter>
+        <parameter key="jungi_environment.theme.resolver.class">Jungi\Bundle\EnvironmentBundle\Theme\Resolver\EnvironmentThemeResolver</parameter>
+        <parameter key="jungi_environment.app_config.class">Jungi\Bundle\EnvironmentBundle\Core\AppConfiguration</parameter>
+        <parameter key="jungi_environment.theme.tag.environment.class">Jungi\Bundle\EnvironmentBundle\Theme\Tag\Environment</parameter>
+    </parameters>
+
+    <services>
+        <service id="jungi_environment.theme.tag.provider" class="%jungi_theme.tag.registry.provider.class%">
+            <tag name="jungi_theme.tag_provider" />
+            <argument>%jungi_environment.theme.tag.environment.class%</argument>
+        </service>
+        <service id="jungi_environment.context" class="%jungi_environment.context.class%">
+            <argument type="service" id="jungi_environment.app_config" />
+        </service>
+        <service id="jungi_environment.controller_listener" class="%jungi_environment.controller_listener.class%">
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="jungi_environment.context" />
+            <argument type="service" id="annotation_reader" />
+        </service>
+        <service id="jungi_environment.theme.resolver" class="%jungi_environment.theme.resolver.class%">
+            <argument type="service" id="jungi_environment.context" />
+        </service>
+        <service id="jungi_environment.app_config" class="%jungi_environment.app_config.class%">
+            <argument>%jungi_environment.config%</argument>
+        </service>
+    </services>
+</container>

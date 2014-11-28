@@ -1,0 +1,3 @@
+jungi_simple_environment:
+    resource: "@JungiEnvironmentBundle/Resources/config/routing.xml"
+    prefix:   /
