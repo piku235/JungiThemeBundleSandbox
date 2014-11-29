@@ -38,7 +38,7 @@ class ThemeController extends Controller
         $form = $this->createFormBuilder($data)
             ->add('theme', 'choice', array(
                 'choice_list' => new ObjectChoiceList($themes, 'information.name', array(), null, 'name'),
-                'empty_value' => 'Choose a theme'
+                'placeholder' => 'Choose a theme'
             ))
             ->add('submit', 'submit')
             ->getForm();
