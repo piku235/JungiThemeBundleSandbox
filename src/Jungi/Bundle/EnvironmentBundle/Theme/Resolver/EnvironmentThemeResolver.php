@@ -47,17 +47,26 @@ class EnvironmentThemeResolver implements ThemeResolverInterface
      */
     public function resolveThemeName(Request $request)
     {
-        // If the app context does not have environment for the current request, ignore
-        if (null === $env = $this->appContext->getEnvironment()) {
+        $env = $this->appContext->getEnvironment();
+        if (!$request->hasSession() || null === $env) {
             return null;
         }
 
-        $sessionName = self::SESSION_NAME . '.' . $env;
-        if (!$request->hasSession() || !$request->getSession()->has($sessionName)) {
-            return $this->appContext->getThemeName();
+        $themeName = $this->appContext->getThemeName();
+        if ($themeNames = $request->getSession()->get(self::SESSION_NAME)) {
+            if (!isset($themeNames[$env])) {
+                $themeNames[$env] = $themeName;
+                $request->getSession()->set(self::SESSION_NAME, $themeNames);
+            } else {
+                $themeName = $themeNames[$env];
+            }
+        } else {
+            $request->getSession()->set(self::SESSION_NAME, array(
+                $env => $themeName
+            ));
         }
 
-        return $request->getSession()->get($sessionName);
+        return $themeName;
     }
 
     /**
@@ -71,6 +80,12 @@ class EnvironmentThemeResolver implements ThemeResolverInterface
             throw new \RuntimeException('The session is required to change the current theme.');
         }
 
-        $request->getSession()->set(self::SESSION_NAME . '.' . $env, $themeName);
+        $themeNames = array();
+        if ($request->getSession()->has(self::SESSION_NAME)) {
+            $themeNames = $request->getSession()->get(self::SESSION_NAME);
+        }
+
+        $themeNames[$env] = $themeName;
+        $request->getSession()->set(self::SESSION_NAME, $themeNames);
     }
 }

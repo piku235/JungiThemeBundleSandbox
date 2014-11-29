@@ -1,1 +1,27 @@
-At work ...
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-3">
+        <h4><span class="glyphicon glyphicon-star"></span> Menu</h4>
+        <hr />
+        <ul class="nav nav-stacked">
+            <li><a href="#"><span class="glyphicon glyphicon-download"></span> Install theme</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-tree-deciduous"></span> Environments</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <h4><span class="glyphicon glyphicon-th-large"></span> Themes</h4>
+        <hr />
+        <p>Here are listed all themes available in the project.</p>
+        {% for theme in themes %}
+        {% include 'JungiEnvironmentBundle:Admin:theme-details.html.twig' %}
+        <hr />
+        {% else %}
+        <p>There is no any available theme.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

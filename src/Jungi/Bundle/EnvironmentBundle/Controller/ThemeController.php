@@ -31,12 +31,14 @@ class ThemeController extends Controller
         $data = array(
             'theme' => $currentTheme->getName()
         );
-        $themes = array_filter($this->get('jungi_theme.manager')->getThemes(), function(ThemeInterface $theme) use ($env) {
-            return $theme->getTags()->contains(new EnvironmentTag($env));
-        });
+        $filter = function(ThemeInterface $theme) use ($env, $currentTheme) {
+            return $currentTheme !== $theme && $theme->getTags()->contains(new EnvironmentTag($env));
+        };
+        $themes = array_filter($this->get('jungi_theme.manager')->getThemes(), $filter);
         $form = $this->createFormBuilder($data)
             ->add('theme', 'choice', array(
-                'choice_list' => new ObjectChoiceList($themes, 'information.name', array(), null, 'name')
+                'choice_list' => new ObjectChoiceList($themes, 'information.name', array(), null, 'name'),
+                'empty_value' => 'Choose a theme'
             ))
             ->add('submit', 'submit')
             ->getForm();

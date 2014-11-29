@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JungiThemeBundle Sandbox - Administrator</title>
+    {% block stylesheets %}
+    <link href="{{ asset('bundles/jungibootstraptheme/components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+    {% endblock %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> JungiThemeBundle</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('jungi_environment_index') }}">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+        <footer class="footer">
+            <p class="pull-right">&copy; JungiThemeBundle Sandbox {{ "now"|date('Y') }}</p>
+        </footer>
+    </div>
+    {% block scripts_bottom %}
+    <script src="{{ asset('bundles/jungibootstraptheme/components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/jungibootstraptheme/components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</body>
+</html>
