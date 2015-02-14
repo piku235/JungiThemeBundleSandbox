@@ -22,10 +22,10 @@ class AdminController extends Controller
 {
     public function indexAction()
     {
-        $themes = $this->get('jungi_theme.manager')->getThemes();
+        $themes = $this->get('jungi_theme.registry')->getThemes();
 
         return $this->render('JungiEnvironmentBundle:Admin:index.html.twig', array(
-            'themes' => $themes
+            'themes' => $themes,
         ));
     }
 }

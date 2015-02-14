@@ -10,11 +10,11 @@
 
 namespace Jungi\Bundle\EnvironmentBundle\Controller;
 
-use Jungi\Bundle\ThemeBundle\Core\ThemeInterface;
-use Jungi\Bundle\EnvironmentBundle\Theme\Tag\Environment as EnvironmentTag;
+use Jungi\Bundle\EnvironmentBundle\Theme\Tag as LocalTag;
+use Jungi\Bundle\ThemeBundle\Tag as GlobalTag;
 use Jungi\Bundle\EnvironmentBundle\Annotation\Environment;
-use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -27,18 +27,16 @@ class ThemeController extends Controller
     public function manageAction(Request $request)
     {
         $env = $this->get('jungi_environment.context')->getEnvironment();
+        $themes = $this->get('jungi_theme.registry')->findThemesWithTags(array(
+            new LocalTag\Environment($env)
+        ));
         $currentTheme = $this->get('jungi_theme.holder')->getTheme();
         $data = array(
-            'theme' => $currentTheme->getName()
+            'theme' => $currentTheme
         );
-        $filter = function(ThemeInterface $theme) use ($env, $currentTheme) {
-            return $currentTheme !== $theme && $theme->getTags()->contains(new EnvironmentTag($env));
-        };
-        $themes = array_filter($this->get('jungi_theme.manager')->getThemes(), $filter);
         $form = $this->createFormBuilder($data)
             ->add('theme', 'choice', array(
-                'choice_list' => new ObjectChoiceList($themes, 'information.name', array(), null, 'name'),
-                'placeholder' => 'Choose a theme'
+                'choice_list' => new ObjectChoiceList($themes, 'name', array(), null, 'name')
             ))
             ->add('submit', 'submit')
             ->getForm();
@@ -46,14 +44,13 @@ class ThemeController extends Controller
         $form->handleRequest($request);
         if ($form->isValid()) {
             $data = $form->getData();
-            $currentTheme = $data['theme'];
-            $this->get('jungi_theme.changer')->change($currentTheme, $request);
+            $this->get('jungi_theme.changer')->change($data['theme'], $request);
         }
 
         return $this->render('JungiEnvironmentBundle:Theme:manage.html.twig', array(
             'form' => $form->createView(),
             'theme' => $currentTheme,
-            'environment' => $env
+            'environment' => $env,
         ));
     }
-} 
+}

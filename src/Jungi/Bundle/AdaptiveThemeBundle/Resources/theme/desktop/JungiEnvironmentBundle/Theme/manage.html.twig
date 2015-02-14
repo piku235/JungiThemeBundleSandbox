@@ -1,0 +1,24 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+<div>
+    <h4>Change theme</h4>
+    <p>The available themes for the environment <b>{{ environment }}</b></p>
+    {{ form_start(form, { 'attr': { 'role': 'form', 'class': 'form-inline' } }) }}
+    <div class="row">
+        <div class="columns small-8 medium-4 large-4">
+            {{ form_widget(form.theme, { 'attr': { 'class': 'form-control' } }) }}
+            {{ form_errors(form.theme) }}
+        </div>
+        <div class="columns small-4 medium-8 large-8">
+            {{ form_widget(form.submit, { 'attr': { 'class': 'button tiny' } }) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+<div>
+    <h4>Current theme details</h4>
+    <p>Here you can read some information about the current theme.</p>
+    {% include 'JungiEnvironmentBundle:Theme:theme-details.html.twig' %}
+</div>
+{% endblock %}

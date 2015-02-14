@@ -62,7 +62,7 @@ class EnvironmentThemeResolver implements ThemeResolverInterface
             }
         } else {
             $request->getSession()->set(self::SESSION_NAME, array(
-                $env => $themeName
+                $env => $themeName,
             ));
         }
 

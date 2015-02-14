@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JungiThemeBundle Sandbox</title>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/components/foundation/css/normalize.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/components/foundation/css/foundation.css') }}"/>
+    <link rel="stylesheet"
+          href="{{ asset('bundles/jungiadaptivetheme/components/foundation/css/foundation-icons.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/css/mobile.css') }}"/>
+    <script src="{{ asset('bundles/jungiadaptivetheme/components/modernizr/modernizr.js') }}"></script>
+</head>
+<body>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <nav class="tab-bar">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+                <section class="middle tab-bar-section">
+                    <h1 class="title">JungiThemeBundle</h1>
+                </section>
+            </nav>
+            <aside class="left-off-canvas-menu">
+                <ul class="off-canvas-list">
+                    <li><label>Navigation</label></li>
+                    <li><a href="{{ path('jungi_environment_index') }}">Home</a></li>
+                    <li><a href="{{ path('jungi_environment_theme_manage') }}">Theme manage</a></li>
+                    <li><a href="{{ path('jungi_environment_admin') }}">Admin</a></li>
+                </ul>
+            </aside>
+            <section class="main-section">
+                <div class="column small-12">
+                    {% block body %}{% endblock %}
+                </div>
+            </section>
+            <a class="exit-off-canvas"></a>
+        </div>
+    </div>
+    <script src="{{ asset('bundles/jungiadaptivetheme/components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/jungiadaptivetheme/components/foundation/js/foundation.min.js') }}"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>

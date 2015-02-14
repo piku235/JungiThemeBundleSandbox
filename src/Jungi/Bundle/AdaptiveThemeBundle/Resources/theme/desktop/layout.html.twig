@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JungiThemeBundle Sandbox</title>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/components/foundation/css/normalize.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/components/foundation/css/foundation.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/components/foundation/css/foundation-icons.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/jungiadaptivetheme/css/general.css') }}"/>
+    <script src="{{ asset('bundles/jungiadaptivetheme/components/modernizr/modernizr.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="column small-12">
+            <header>
+                <h3 class="logo">
+                    <span class="fi-social-treehouse"></span> JungiThemeBundle
+                </h3>
+                <nav class="top-bar" data-topbar>
+                    <ul class="title-area">
+                        <li class="name"></li>
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+                    <section class="top-bar-section">
+                        <!-- Left Nav Section -->
+                        <ul class="left">
+                            {% set route_name = app.request.get('_route') %}
+                            <li {% if route_name == 'jungi_environment_index' %}class="active"{% endif %}><a href="{{ path('jungi_environment_index') }}">Home</a></li>
+                            <li {% if route_name == 'jungi_environment_theme_manage' %}class="active"{% endif %}><a href="{{ path('jungi_environment_theme_manage') }}">Theme manage</a></li>
+                            <li {% if route_name == 'jungi_environment_admin' %}class="active"{% endif %}><a href="{{ path('jungi_environment_admin') }}">Admin</a></li>
+                        </ul>
+                    </section>
+                </nav>
+            </header>
+            <main>
+                {% block body %}{% endblock %}
+            </main>
+            <footer>
+                <p class="text-right">&copy; JungiThemeBundle Sandbox {{ "now"|date('Y') }}</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="{{ asset('bundles/jungiadaptivetheme/components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/jungiadaptivetheme/components/foundation/js/foundation.min.js') }}"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
