@@ -1,0 +1,35 @@
+@import "settings_general";
+@import "foundation";
+
+.container {
+  @include grid-row();
+}
+
+header {
+  h3.logo {
+    font-size: 2em;
+    padding: 1em 0 1em 0.5em;
+    @media #{$small-only} {
+      font-size: 1.5em;
+    }
+  }
+}
+
+main {
+  margin-top: 1.5em;
+  font-size: 0.8em;
+  .banner {
+    @extend .text-center;
+    @include radius(5px);
+    background: #efefef;
+    padding: 3em 1.5em;
+    margin-bottom: rem-calc(10);
+    p {
+      font-size: 1rem;
+    }
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+}
+

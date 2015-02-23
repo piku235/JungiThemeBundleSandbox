@@ -10,8 +10,14 @@
 
 namespace Jungi\Bundle\EnvironmentBundle;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class JungiEnvironmentBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        $ext = $container->getExtension('jungi_theme');
+        $ext->registerTag('Jungi\Bundle\EnvironmentBundle\Theme\Tag\Environment');
+    }
 }

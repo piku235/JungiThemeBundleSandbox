@@ -1,0 +1,18 @@
+@import "settings_mobile";
+@import "foundation";
+
+.main-section {
+  @include grid-row();
+  padding-top: rem-calc(10);
+
+  .banner {
+    @extend .text-center;
+    @include radius(5px);
+    background: #efefef;
+    padding: 2em 1.5em;
+    margin-bottom: rem-calc(10);
+    p {
+      font-size: 1rem;
+    }
+  }
+}

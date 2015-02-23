@@ -9,14 +9,9 @@
         <parameter key="jungi_environment.context.class">Jungi\Bundle\EnvironmentBundle\Core\AppContext</parameter>
         <parameter key="jungi_environment.theme.resolver.class">Jungi\Bundle\EnvironmentBundle\Theme\Resolver\EnvironmentThemeResolver</parameter>
         <parameter key="jungi_environment.app_config.class">Jungi\Bundle\EnvironmentBundle\Core\AppConfiguration</parameter>
-        <parameter key="jungi_environment.theme.tag.environment.class">Jungi\Bundle\EnvironmentBundle\Theme\Tag\Environment</parameter>
     </parameters>
 
     <services>
-        <service id="jungi_environment.theme.tag.provider" class="%jungi_theme.tag.registry.provider.class%">
-            <tag name="jungi_theme.tag_provider" />
-            <argument>%jungi_environment.theme.tag.environment.class%</argument>
-        </service>
         <service id="jungi_environment.context" class="%jungi_environment.context.class%">
             <argument type="service" id="jungi_environment.app_config" />
         </service>
