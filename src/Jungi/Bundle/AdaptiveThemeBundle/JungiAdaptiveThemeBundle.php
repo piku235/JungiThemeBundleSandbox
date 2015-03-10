@@ -2,6 +2,7 @@
 
 namespace Jungi\Bundle\AdaptiveThemeBundle;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -14,9 +15,11 @@ class JungiAdaptiveThemeBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function boot()
+    public function build(ContainerBuilder $builder)
     {
-        $loader = $this->container->get('jungi_theme.mapping.loader.xml');
-        $loader->load(__DIR__.'/Resources/config/theme.xml');
+        /* @var \Jungi\Bundle\ThemeBundle\DependencyInjection\JungiThemeExtension $ext */
+
+        $ext = $builder->getExtension('jungi_theme');
+        $ext->registerMappingFile(__DIR__.'/Resources/config/theme.xml');
     }
 }

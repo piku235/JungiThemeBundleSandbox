@@ -4,9 +4,10 @@
                xsi:schemaLocation="http://piku235.github.io/JungiThemeBundle/schema/theme-mapping https://raw.githubusercontent.com/piku235/JungiThemeBundle/master/Mapping/Loader/schema/theme-1.0.xsd">
 
     <themes>
-        <theme name="jungi_adaptive_desktop" path="@JungiAdaptiveThemeBundle/Resources/theme/desktop">
+        <theme name="jungi_adaptive_master" path="@JungiAdaptiveThemeBundle/Resources/theme/master">
             <tags>
                 <tag name="jungi.desktop_devices" />
+                <tag name="jungi.tablet_devices" />
             </tags>
         </theme>
         <theme name="jungi_adaptive_mobile" path="@JungiAdaptiveThemeBundle/Resources/theme/mobile">
@@ -16,11 +17,15 @@
         </theme>
         <virtual-theme name="jungi_adaptive">
             <themes>
-                <ref theme="jungi_adaptive_desktop" />
+                <ref theme="jungi_adaptive_master" />
                 <ref theme="jungi_adaptive_mobile" />
             </themes>
             <tags>
                 <tag name="jungi.environment">default</tag>
+                <!-- inherited from children themes -->
+                <tag name="jungi.desktop_devices" />
+                <tag name="jungi.mobile_devices" />
+                <tag name="jungi.tablet_devices" />
             </tags>
         </virtual-theme>
     </themes>

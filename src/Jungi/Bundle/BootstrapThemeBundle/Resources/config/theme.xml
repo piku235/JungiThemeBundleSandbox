@@ -8,6 +8,7 @@
                 <tag name="jungi.environment">admin</tag>
                 <tag name="jungi.desktop_devices" />
                 <tag name="jungi.mobile_devices" />
+                <tag name="jungi.tablet_devices" />
             </tags>
         </theme>
         <theme name="jungi_bootstrap" path="@JungiBootstrapThemeBundle/Resources/theme/default">
@@ -15,6 +16,7 @@
                 <tag name="jungi.environment">default</tag>
                 <tag name="jungi.desktop_devices" />
                 <tag name="jungi.mobile_devices" />
+                <tag name="jungi.tablet_devices" />
             </tags>
         </theme>
     </themes>
