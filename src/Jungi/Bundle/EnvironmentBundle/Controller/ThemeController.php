@@ -27,7 +27,7 @@ class ThemeController extends Controller
     public function manageAction(Request $request)
     {
         $env = $this->get('jungi_environment.context')->getEnvironment();
-        $themes = $this->get('jungi_theme.registry')->findThemesWithTags(array(
+        $themes = $this->get('jungi_theme.source')->findThemesWithTags(array(
             new LocalTag\Environment($env)
         ));
         $currentTheme = $this->get('jungi_theme.holder')->getTheme();
