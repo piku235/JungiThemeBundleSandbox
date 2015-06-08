@@ -11,6 +11,7 @@
 
 namespace Jungi\Bundle\EnvironmentBundle\Controller;
 
+use Jungi\Bundle\EnvironmentBundle\Annotation\Environment;
 use Jungi\Bundle\EnvironmentBundle\Theme\Tag as LocalTag;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
