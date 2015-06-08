@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -33,7 +34,7 @@ class EnvironmentThemeResolver implements ThemeResolverInterface
     protected $appContext;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param AppContext $appContext An app context
      */
@@ -49,7 +50,7 @@ class EnvironmentThemeResolver implements ThemeResolverInterface
     {
         $env = $this->appContext->getEnvironment();
         if (!$request->hasSession() || null === $env) {
-            return null;
+            return;
         }
 
         $themeName = $this->appContext->getThemeName();

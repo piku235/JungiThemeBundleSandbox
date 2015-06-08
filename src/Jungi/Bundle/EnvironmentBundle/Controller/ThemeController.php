@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -11,14 +12,11 @@
 namespace Jungi\Bundle\EnvironmentBundle\Controller;
 
 use Jungi\Bundle\EnvironmentBundle\Theme\Tag as LocalTag;
-use Jungi\Bundle\ThemeBundle\Tag as GlobalTag;
-use Jungi\Bundle\EnvironmentBundle\Annotation\Environment;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * ThemeController
+ * ThemeController.
  *
  * @Environment("default")
  */
@@ -27,16 +25,20 @@ class ThemeController extends Controller
     public function manageAction(Request $request)
     {
         $env = $this->get('jungi_environment.context')->getEnvironment();
+        $themeHolder = $this->get('jungi_theme.holder');
+
+        $currentTheme = $themeHolder->getTheme();
         $themes = $this->get('jungi_theme.source')->findThemesWithTags(array(
-            new LocalTag\Environment($env)
+            new LocalTag\Environment($env),
         ));
-        $currentTheme = $this->get('jungi_theme.holder')->getTheme();
-        $data = array(
-            'theme' => $currentTheme
-        );
-        $form = $this->createFormBuilder($data)
+        $form = $this->createFormBuilder(array(
+                'theme' => $currentTheme,
+            ))
             ->add('theme', 'choice', array(
-                'choice_list' => new ObjectChoiceList($themes, 'name', array(), null, 'name')
+                'choices' => $themes,
+                'choice_label' => 'name',
+                'choice_value' => 'name',
+                'choices_as_values' => true,
             ))
             ->add('submit', 'submit')
             ->getForm();
@@ -45,6 +47,7 @@ class ThemeController extends Controller
         if ($form->isValid()) {
             $data = $form->getData();
             $this->get('jungi_theme.changer')->change($data['theme'], $request);
+            $currentTheme = $themeHolder->getTheme();
         }
 
         return $this->render('JungiEnvironmentBundle:Theme:manage.html.twig', array(

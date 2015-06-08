@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -18,7 +19,7 @@ use Doctrine\Common\Util\ClassUtils;
 use Jungi\Bundle\EnvironmentBundle\Core\AppContext;
 
 /**
- * ControllerListener
+ * ControllerListener.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */
@@ -35,7 +36,7 @@ class ControllerListener implements EventSubscriberInterface
     protected $appContext;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param AnnotationReader $reader An annotation reader
      */
@@ -46,11 +47,9 @@ class ControllerListener implements EventSubscriberInterface
     }
 
     /**
-     * Read environment annotation in controller
+     * Read environment annotation in controller.
      *
      * @param FilterControllerEvent $event An event
-     *
-     * @return void
      *
      * @throws \RuntimeException
      */
@@ -73,7 +72,8 @@ class ControllerListener implements EventSubscriberInterface
     }
 
     /**
-     * (non-PHPdoc)
+     * (non-PHPdoc).
+     *
      * @see \Symfony\Component\EventDispatcher\EventSubscriberInterface::getSubscribedEvents()
      */
     public static function getSubscribedEvents()

@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * JungiAdaptiveThemeBundle
+ * JungiAdaptiveThemeBundle.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */

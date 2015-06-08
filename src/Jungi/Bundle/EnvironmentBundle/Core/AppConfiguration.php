@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -11,7 +12,7 @@
 namespace Jungi\Bundle\EnvironmentBundle\Core;
 
 /**
- * AppConfiguration
+ * AppConfiguration.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */
@@ -23,7 +24,7 @@ class AppConfiguration
     protected $config;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param array $config A configuration
      */
@@ -33,7 +34,7 @@ class AppConfiguration
     }
 
     /**
-     * Returns all configuration
+     * Returns all configuration.
      *
      * @return array
      */
@@ -43,7 +44,7 @@ class AppConfiguration
     }
 
     /**
-     * Returns environments configuration
+     * Returns environments configuration.
      *
      * @return array
      */
@@ -53,7 +54,7 @@ class AppConfiguration
     }
 
     /**
-     * Returns an environment configuration
+     * Returns an environment configuration.
      *
      * @param string      $env An environment
      * @param string|null $key A key element to return from the config (optional)

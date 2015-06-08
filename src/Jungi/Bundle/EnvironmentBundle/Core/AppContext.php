@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -14,7 +15,7 @@ use Jungi\Bundle\ThemeBundle\Core\ThemeHolderInterface;
 use Jungi\Bundle\ThemeBundle\Core\ThemeInterface;
 
 /**
- * AppContext
+ * AppContext.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */
@@ -36,7 +37,7 @@ class AppContext implements ThemeHolderInterface
     protected $config;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param AppConfiguration $config An app configuration
      */
@@ -62,7 +63,7 @@ class AppContext implements ThemeHolderInterface
     }
 
     /**
-     * Returns the current theme name based on the current environment
+     * Returns the current theme name based on the current environment.
      *
      * @return string
      */
@@ -72,11 +73,9 @@ class AppContext implements ThemeHolderInterface
     }
 
     /**
-     * Sets the current environment
+     * Sets the current environment.
      *
      * @param string $env An environment
-     *
-     * @return void
      */
     public function setEnvironment($env)
     {
@@ -84,7 +83,7 @@ class AppContext implements ThemeHolderInterface
     }
 
     /**
-     * Returns the current environment
+     * Returns the current environment.
      *
      * @return string
      */
@@ -94,7 +93,7 @@ class AppContext implements ThemeHolderInterface
     }
 
     /**
-     * Returns the current environment configuration
+     * Returns the current environment configuration.
      *
      * @param string|null $key A key element to return from the config (optional)
      *

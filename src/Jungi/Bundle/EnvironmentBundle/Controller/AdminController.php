@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -14,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Jungi\Bundle\EnvironmentBundle\Annotation\Environment;
 
 /**
- * AdminController
+ * AdminController.
  *
  * @Environment("admin")
  */

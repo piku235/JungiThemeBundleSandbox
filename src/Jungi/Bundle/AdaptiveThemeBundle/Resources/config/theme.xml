@@ -17,8 +17,8 @@
         </theme>
         <virtual-theme name="jungi_adaptive">
             <themes>
-                <ref theme="jungi_adaptive_master" />
-                <ref theme="jungi_adaptive_mobile" />
+                <ref theme="jungi_adaptive_master" as="master" />
+                <ref theme="jungi_adaptive_mobile" as="mobile" />
             </themes>
             <tags>
                 <tag name="jungi.environment">default</tag>
@@ -27,6 +27,9 @@
                 <tag name="jungi.mobile_devices" />
                 <tag name="jungi.tablet_devices" />
             </tags>
+            <info>
+                <property key="name">Adaptive Theme</property>
+            </info>
         </virtual-theme>
     </themes>
 

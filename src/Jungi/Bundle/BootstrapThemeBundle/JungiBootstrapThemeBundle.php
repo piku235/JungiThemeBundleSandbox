@@ -1,11 +1,12 @@
 <?php
+
 namespace Jungi\Bundle\BootstrapThemeBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * JungiBootstrapThemeBundle
+ * JungiBootstrapThemeBundle.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */

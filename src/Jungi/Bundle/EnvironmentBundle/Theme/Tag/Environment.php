@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the JungiEnvironmentBundle package.
  *
@@ -13,7 +14,7 @@ namespace Jungi\Bundle\EnvironmentBundle\Theme\Tag;
 use Jungi\Bundle\ThemeBundle\Tag\TagInterface;
 
 /**
- * Environment tag allows to group themes by environment
+ * Environment tag allows to group themes by environment.
  *
  * @author Piotr Kugla <piku235@gmail.com>
  */
@@ -25,7 +26,7 @@ class Environment implements TagInterface
     protected $env;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param string $env An environment
      */
@@ -35,7 +36,7 @@ class Environment implements TagInterface
     }
 
     /**
-     * Returns the environment
+     * Returns the environment.
      *
      * @return string
      */
@@ -45,7 +46,8 @@ class Environment implements TagInterface
     }
 
     /**
-     * (non-PHPdoc)
+     * (non-PHPdoc).
+     *
      * @see \Jungi\Bundle\ThemeBundle\Tag\TagInterface::isEqual()
      */
     public function isEqual(TagInterface $tag)
@@ -54,7 +56,8 @@ class Environment implements TagInterface
     }
 
     /**
-     * (non-PHPdoc)
+     * (non-PHPdoc).
+     *
      * @see \Jungi\Bundle\ThemeBundle\Tag\TagInterface::getName()
      */
     public static function getName()
