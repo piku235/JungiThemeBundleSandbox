@@ -1,0 +1,32 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1>Welcome!</h1>
+    <p>This sandbox is a test platform which focuses on the most useful functionality of the JungiThemeBundle.</p>
+    <p>Thanks for downloading and I hope you will enjoy it. <span class="glyphicon glyphicon-thumbs-up"></span></p>
+</div>
+<div class="descriptions">
+    <div class="description">
+        <h4>What is included?</h4>
+        <p>
+            The sandbox contains a simple structure of environments which are used in controllers and two themes.
+        </p>
+    </div>
+    <div class="description">
+        <h4>How these environments works?</h4>
+        <p>
+            The resolved controller decides about an environment for the request - thanks to that a theme resolver knows
+            which theme it should use.
+        </p>
+    </div>
+    <div class="description">
+        <h4>About the themes</h4>
+        <p>There're two themes in the project:</p>
+        <ul>
+            <li><b>jungi_bootstrap</b> - designed for the <b>default</b> environment</li>
+            <li><b>jungi_bootstrap_admin</b> - designed for the <b>admin</b> environment</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
