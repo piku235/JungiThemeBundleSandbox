@@ -1,0 +1,32 @@
+parameters:
+  author.master:
+    name: Piotr Kugla
+    email: piku235@gmail.com
+    homepage: www.jungi.com
+
+themes:
+  jungi_bootstrap:
+    path: "%kernel.root_dir%/Resources/themes/bootstrap_default"
+    tags:
+      jungi.environment: default
+      jungi.desktop_devices: ~
+      jungi.mobile_devices: ~
+      jungi.tablet_devices: ~
+    info:
+      name: JungiDefaultTheme
+      description: default theme located in the project root directory
+      authors:
+        - "%author.master%"
+        - { name: Nobody, email: nobody@gmail.com }
+
+  jungi_bootstrap_admin:
+    path: "%kernel.root_dir%/Resources/themes/bootstrap_admin"
+    tags:
+      jungi.environment: admin
+      jungi.desktop_devices: ~
+      jungi.mobile_devices: ~
+      jungi.tablet_devices: ~
+    info:
+      name: JungiAdminTheme
+      description: default admin theme located in the project root directory
+      authors: [ "%author.master%" ]

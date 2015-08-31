@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JungiThemeBundle Sandbox</title>
     {% block stylesheets %}
-    <link href="{{ asset('bundles/jungibootstraptheme/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     {% endblock %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -41,8 +41,8 @@
         </footer>
     </div>
     {% block scripts_bottom %}
-    <script src="{{ asset('bundles/jungibootstraptheme/components/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('bundles/jungibootstraptheme/components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     {% endblock %}
 </body>
 </html>

@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Jungi\Bundle\ThemeBundle\JungiThemeBundle(),
             new Jungi\Bundle\EnvironmentBundle\JungiEnvironmentBundle(),
-            new Jungi\Bundle\BootstrapThemeBundle\JungiBootstrapThemeBundle(),
             new Jungi\Bundle\AdaptiveThemeBundle\JungiAdaptiveThemeBundle(),
         );
 

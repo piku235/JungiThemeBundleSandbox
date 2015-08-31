@@ -69,6 +69,8 @@ jungi_theme:
         id: jungi_environment.context
     resolver:
         primary: jungi_environment.theme.resolver
+    mappings:
+        - { resource: "%kernel.root_dir%/config/jungi_theme.yml" }
 
 # Jungi EnvironmentBundle Configuration
 jungi_environment:
